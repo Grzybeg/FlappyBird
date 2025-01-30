@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public int Score = 0;
     public TMP_Text TextObject;
     public GameObject GameOverPanel;
-
+    public AudioSource Swim;
     //ass
 
     private void Start()
@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(JumpKey))
         {
+            Swim.Play();
             RB.velocity = new Vector3(0, JumpForce);
         }
     }

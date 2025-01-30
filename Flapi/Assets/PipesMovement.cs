@@ -10,7 +10,7 @@ public class PipesMovement : MonoBehaviour
         ////eqasad
         ///
 
-        if(transform.position.x == -13)
+        if(transform.position.x <= -13)
         {
             Destroy(this.gameObject);
         }

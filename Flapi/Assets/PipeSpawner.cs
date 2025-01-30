@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PipeSpawner : MonoBehaviour
 {
-    public int SpawnRate;
+    public float SpawnRateMax;
+    public float SpawnRateMin;
     public GameObject PipeObject;
 
     private void Start()
@@ -15,10 +16,10 @@ public class PipeSpawner : MonoBehaviour
 
     public void SpawnPipes()
     {
-        float randomY = (float)Random.Range(-200, 200)/100;
+        float randomY = ((float)Random.Range(-200, 200))/100;
         Vector3 spawnPosition = new Vector3(14, randomY);
         Instantiate(PipeObject, spawnPosition, Quaternion.identity);
-        Invoke("SpawnPipes", SpawnRate);
+        Invoke("SpawnPipes", Random.Range(SpawnRateMin,SpawnRateMax));
     }
 
     public void RestartButton()
